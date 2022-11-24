@@ -1,4 +1,4 @@
-package io.rezyfr.themoviedb
+package io.rezyfr.tmdb
 
 import org.junit.Test
 

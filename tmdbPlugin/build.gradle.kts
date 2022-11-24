@@ -15,7 +15,7 @@ dependencies {
 }
 
 tasks {
-    compileKotlin { kotlinOptions.jvmTarget = "1.8" }
+    compileKotlin { kotlinOptions.jvmTarget = "11" }
 }
 
 gradlePlugin {

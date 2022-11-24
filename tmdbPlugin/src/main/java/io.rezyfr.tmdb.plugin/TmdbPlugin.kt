@@ -10,6 +10,7 @@ import DaggerHilt
 import ImageLoader
 import Jetbrains
 import LeakCanary
+import Modules
 import Networking
 import TestDependencies
 import ThirdPartyLibraryDependencies
@@ -32,6 +33,7 @@ class TmdbPlugin : Plugin<Project>{
         val networking = Networking
         val coroutines = Coroutines
         val hilt = DaggerHilt
+        val module = Modules
         val leakCanary = LeakCanary
         val imageLoader = ImageLoader
         val testDependencies = TestDependencies

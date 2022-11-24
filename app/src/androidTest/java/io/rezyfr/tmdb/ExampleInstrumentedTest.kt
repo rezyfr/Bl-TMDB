@@ -1,4 +1,4 @@
-package io.rezyfr.themoviedb
+package io.rezyfr.tmdb
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

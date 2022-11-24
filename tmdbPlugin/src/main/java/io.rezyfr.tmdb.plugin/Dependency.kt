@@ -111,7 +111,7 @@ object Coroutines {
 
 object DaggerHilt {
     const val hiltAndroid = "com.google.dagger:hilt-android:${Versions.daggerHilt}"
-    const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.daggerHilt}"
+    const val hiltCompiler = "com.google.dagger:hilt-compiler:${Versions.daggerHilt}"
 }
 
 object LeakCanary {
@@ -188,4 +188,13 @@ object Jetbrains {
 
 object ThirdPartyLibraryDependencies {
     const val timber = "com.jakewharton.timber:timber:${ThirdPartyLibVersions.timber}"
+}
+
+object Modules {
+    const val data = ":core:data"
+    const val domain = ":core:domain"
+
+    val implementation = arrayOf(
+        data, domain
+    )
 }
