@@ -1,0 +1,4 @@
+includeBuild("tmdbPlugin")
+include(
+    ":app"
+)
