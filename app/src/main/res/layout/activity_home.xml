@@ -7,14 +7,45 @@
   tools:context=".presentation.home.HomeActivity">
 
   <TextView
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
+    android:id="@+id/tv_header"
+    style="@style/AppTheme.TextAppearance.Header.24"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:paddingHorizontal="@dimen/spacing_16"
     android:paddingVertical="@dimen/spacing_20"
-    tools:text="TheMovieDB"
-    android:layout_width="match_parent"
-    style="@style/AppTheme.TextAppearance.Header.24"
-    android:layout_height="wrap_content"/>
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:text="TheMovieDB" />
 
+  <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/rv_movie"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:orientation="vertical"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    app:layout_constraintTop_toBottomOf="@id/tv_header"
+    app:layout_constraintBottom_toBottomOf="parent"
+    tools:listitem="@layout/item_movie_home" />
+
+  <ProgressBar
+    android:id="@+id/pb_loading"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:visibility="gone"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+  <Button
+    android:id="@+id/btn_retry"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Retry"
+    android:visibility="gone"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

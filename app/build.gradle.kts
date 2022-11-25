@@ -1,5 +1,4 @@
 import io.rezyfr.tmdb.plugin.TmdbPlugin
-import com.android.build.gradle.internal.tasks.factory.dependsOn
 
 plugins {
     id("com.android.application")
@@ -32,7 +31,7 @@ android {
     }
 
     buildTypes {
-        getByName("debug") {
+        debug {
             buildConfigField("String", "APP_TYPE", String.format("\"%s\"", "debug"))
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -40,8 +39,9 @@ android {
             )
             versionNameSuffix = "-DEBUG"
             isTestCoverageEnabled = true
+            isDebuggable = true
         }
-        getByName("release") {
+        release {
             isMinifyEnabled = true
             isShrinkResources = true
             buildConfigField("String", "APP_TYPE", String.format("\"%s\"", "release"))
@@ -57,16 +57,16 @@ android {
             dimension = "api"
             applicationIdSuffix = ".debug"
             buildConfigField("String", "BASE_URL", buildProperty("BASE_URL_DEBUG"))
-            buildConfigField("String", "DOWNLOAD_URL", buildProperty("BASE_IMAGE_URL_DOWNLOAD"))
-            buildConfigField("String", "DOWNLOAD_URL", buildProperty("BASE_BACKDROP_URL_DOWNLOAD"))
+            buildConfigField("String", "IMAGE_URL", buildProperty("BASE_IMAGE_URL"))
+            buildConfigField("String", "BACKDROP_URL", buildProperty("BASE_BACKDROP_URL"))
             buildConfigField("String", "API_KEY", buildProperty("API_KEY"))
         }
         create("production") {
             dimension = "api"
             applicationIdSuffix = ".release"
             buildConfigField("String", "BASE_URL", buildProperty("BASE_URL_DEBUG"))
-            buildConfigField("String", "DOWNLOAD_URL", buildProperty("BASE_IMAGE_URL_DOWNLOAD"))
-            buildConfigField("String", "DOWNLOAD_URL", buildProperty("BASE_BACKDROP_URL_DOWNLOAD"))
+            buildConfigField("String", "IMAGE_URL", buildProperty("BASE_IMAGE_URL"))
+            buildConfigField("String", "BACKDROP_URL", buildProperty("BASE_BACKDROP_URL"))
             buildConfigField("String", "API_KEY", buildProperty("API_KEY"))
         }
     }
@@ -95,7 +95,7 @@ android {
 
     testOptions {
         // Used for Unit testing Android dependent elements in /test folder
-        unitTests.isIncludeAndroidResources  = true
+        unitTests.isIncludeAndroidResources = true
         unitTests.isReturnDefaultValues = true
     }
 }
@@ -111,9 +111,7 @@ dependencies {
 
     TmdbPlugin.coroutines.implementation.forEach { implementation(it) }
     implementation(TmdbPlugin.hilt.hiltAndroid)
-    implementation("androidx.appcompat:appcompat:1.5.1")
-    implementation("com.google.android.material:material:1.4.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation(TmdbPlugin.androidX.paging)
     kapt(TmdbPlugin.hilt.hiltCompiler)
     TmdbPlugin.networking.implementation.forEach { implementation(it) }
 

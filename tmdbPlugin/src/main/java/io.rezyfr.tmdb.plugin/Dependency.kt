@@ -14,7 +14,7 @@ object AndroidX {
     const val androidFragmentKTX = "androidx.fragment:fragment-ktx:${Versions.androidXFragmentKtx}"
     const val swipeRefreshLayout =
         "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.androidXSwipeRefreshLayout}"
-
+    const val paging = "androidx.paging:paging-runtime-ktx:${Versions.androidXPaging}"
     val implementation = arrayOf(
         androidXLegacyV4,
         androidXMaterial,

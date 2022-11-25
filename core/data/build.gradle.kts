@@ -61,6 +61,7 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(TmdbPlugin.jetbrains.kotlinstdlibjdk7)
     TmdbPlugin.androidX.implementation.forEach { implementation(it) }
+    implementation(TmdbPlugin.androidX.paging)
     api(project(TmdbPlugin.module.domain))
 
     TmdbPlugin.coroutines.implementation.forEach { implementation(it) }

@@ -12,7 +12,8 @@
   <color name="yellow_09">#592D00</color>
 
   <color name="grey_00">#FFFFFF</color>
-  <color name="grey_01">#FAFAFA</color>
+  <color name="grey_01">#FAFAFA</color>40
+  <color name="grey_01_75">#BFFAFAFA</color>
   <color name="grey_02">#F3F3F3</color>
   <color name="grey_03">#E8E8E8</color>
   <color name="grey_04">#D8D8D9</color>
