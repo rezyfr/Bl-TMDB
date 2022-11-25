@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+  <color name="colorTextPrimary">@color/grey_00</color>
+  <color name="colorTextSecondary">@color/grey_05</color>
+
   <color name="yellow_00">#FFFFEC</color>
   <color name="yellow_02">#FCFACC</color>
   <color name="yellow_03">#FAF2A5</color>
