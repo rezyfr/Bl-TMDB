@@ -9,7 +9,6 @@ import io.rezyfr.tmdb.domain.model.MovieDomainModel
 
 class MoviePagingSource(
     private val service: TmdbService,
-    private val networkConfig: NetworkConfig
 ) : PagingSource<Int, MovieDomainModel>() {
     override fun getRefreshKey(state: PagingState<Int, MovieDomainModel>): Int {
         return 1

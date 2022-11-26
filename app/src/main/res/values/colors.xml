@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+  <color name="colorPrimary">@color/grey_01</color>
+  <color name="colorSecondary">@color/yellow_05</color>
+
   <color name="colorTextPrimary">@color/grey_00</color>
   <color name="colorTextSecondary">@color/grey_05</color>
 

@@ -7,6 +7,7 @@ import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.scopes.ViewModelScoped
 import io.rezyfr.tmdb.domain.repository.TmdbRepository
 import io.rezyfr.tmdb.domain.usecase.DiscoverMoviesUseCase
+import io.rezyfr.tmdb.domain.usecase.GetMovieDetailUseCase
 
 @Module
 @InstallIn(ViewModelComponent::class)
@@ -14,4 +15,8 @@ object DomainModule {
     @ViewModelScoped
     @Provides
     fun provideDiscoverUseCase(repository: TmdbRepository) = DiscoverMoviesUseCase(repository)
+
+    @ViewModelScoped
+    @Provides
+    fun provideGetMovieDetailUseCase(repository: TmdbRepository) = GetMovieDetailUseCase(repository)
 }

@@ -127,9 +127,8 @@ object DataModule {
 
     @Provides
     fun provideRepository(
-        tmdbService: TmdbService,
-        networkConfig: NetworkConfig
-    ): TmdbRepository = TmdbRepositoryImpl(tmdbService, networkConfig)
+        tmdbService: TmdbService
+    ): TmdbRepository = TmdbRepositoryImpl(tmdbService)
 
     @Provides
     @Singleton
