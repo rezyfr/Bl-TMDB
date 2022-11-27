@@ -24,7 +24,9 @@ class TmdbRepositoryImpl constructor(
     }
 
     override suspend fun getMovieDetail(movieId: Int): FetchData<MovieDetailDomainModel> {
-        return service.getMovieDetail(movieId).toFetchDataDomain { it.toDomain() }
+        return service.getMovieDetail(movieId).toFetchDataDomain {
+            it.toDomain()
+        }
     }
 }
 
