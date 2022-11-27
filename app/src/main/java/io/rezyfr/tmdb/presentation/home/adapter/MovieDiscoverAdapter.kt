@@ -12,8 +12,9 @@ import io.rezyfr.tmdb.databinding.ItemMovieHomeBinding
 import io.rezyfr.tmdb.domain.model.MovieDomainModel
 import timber.log.Timber
 
-class MovieDiscoverAdapter :
-    PagingDataAdapter<MovieDomainModel, MovieDiscoverAdapter.MovieViewHolder>(
+class MovieDiscoverAdapter(
+    private val listener: MovieDiscoverListener
+) : PagingDataAdapter<MovieDomainModel, MovieDiscoverAdapter.MovieViewHolder>(
         MovieModelComparator
     ) {
 
@@ -44,8 +45,15 @@ class MovieDiscoverAdapter :
                 tvTitle.text = data.title
                 tvOverview.text = data.overview
                 ratingBar.rating = data.voteAverage.div(2).toFloat()
+                root.setOnClickListener {
+                    listener.onMovieClicked(data.id)
+                }
             }
         }
+    }
+
+    interface MovieDiscoverListener {
+        fun onMovieClicked(id: Int)
     }
 
     companion object {

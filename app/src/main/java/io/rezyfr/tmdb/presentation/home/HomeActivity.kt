@@ -4,12 +4,11 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
-import androidx.recyclerview.widget.LinearLayoutManager
-import dagger.hilt.EntryPoint
 import dagger.hilt.android.AndroidEntryPoint
 import io.rezyfr.tmdb.R
 import io.rezyfr.tmdb.base.BaseActivity
 import io.rezyfr.tmdb.databinding.ActivityHomeBinding
+import io.rezyfr.tmdb.presentation.detail.DetailActivity
 import io.rezyfr.tmdb.presentation.home.adapter.MovieDiscoverAdapter
 import io.rezyfr.tmdb.presentation.home.adapter.MovieLoadStateAdapter
 import io.rezyfr.tmdb.utils.*
@@ -17,9 +16,10 @@ import kotlinx.coroutines.flow.collectLatest
 import timber.log.Timber
 
 @AndroidEntryPoint
-class HomeActivity : BaseActivity<ActivityHomeBinding>() {
+class HomeActivity : BaseActivity<ActivityHomeBinding>(),
+    MovieDiscoverAdapter.MovieDiscoverListener {
     private val viewModel: HomeViewModel by viewModels()
-    private val  adapter by lazy { MovieDiscoverAdapter() }
+    private val adapter by lazy { MovieDiscoverAdapter(this) }
     override fun getViewBinding() = ActivityHomeBinding.inflate(layoutInflater)
 
     override fun setupView() {
@@ -74,5 +74,10 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
                 }
             }
         }
+    }
+
+    override fun onMovieClicked(id: Int) {
+        val intent = DetailActivity.create(this, id)
+        startActivity(intent)
     }
 }

@@ -38,10 +38,8 @@ object Versions {
 //third party libraries
 object ThirdPartyLibVersions {
     const val glide = "4.11.0"
-    const val testThreetenabp = "1.6.3"
-    const val regularThreetenabp = "1.4.0"
     const val timber = "4.7.1"
+    const val shimmer = "0.1.0@aar"
     const val chucker = "3.5.2"
     const val leakCanary = "2.8.1"
-    const val turbine = "0.8.0"
 }

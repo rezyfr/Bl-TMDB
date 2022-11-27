@@ -148,10 +148,6 @@ object TestDependencies {
         "androidx.test.espresso:espresso-core:${Versions.androidXTestEspresso}"
     const val androidXTestRunner = "androidx.test:runner:${Versions.androidXTestRunner}"
     const val androidXTestTruth = "androidx.test.ext:truth:${Versions.androidXTestTruth}"
-    const val turbine = "app.cash.turbine:turbine:${ThirdPartyLibVersions.turbine}"
-    const val threetenabp = "org.threeten:threetenbp:${ThirdPartyLibVersions.testThreetenabp}"
-    const val regularThreetenabp =
-        "org.threeten:threetenbp:${ThirdPartyLibVersions.regularThreetenabp}"
 
     val testImplementation = arrayOf(
         jUnit,
@@ -164,9 +160,6 @@ object TestDependencies {
         powerMockitoJunit4,
         powerMockito2,
         androidXTestTruth,
-        turbine,
-        threetenabp,
-        regularThreetenabp
     )
 
     val androidTestImplementation = arrayOf(
@@ -188,6 +181,7 @@ object Jetbrains {
 
 object ThirdPartyLibraryDependencies {
     const val timber = "com.jakewharton.timber:timber:${ThirdPartyLibVersions.timber}"
+    const val shimmer = "com.facebook.shimmer:shimmer:${ThirdPartyLibVersions.shimmer}"
 }
 
 object Modules {

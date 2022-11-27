@@ -10,9 +10,10 @@ import io.rezyfr.tmdb.domain.usecase.GetMovieDetailUseCase
 import io.rezyfr.tmdb.domain.utils.FetchData
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @HiltViewModel
-class DetailViewModel constructor(
+class DetailViewModel @Inject constructor(
     private val getMovieDetailUseCase: GetMovieDetailUseCase
 ) : ViewModel() {
     private val _detail = MutableLiveData<FetchData<MovieDetailDomainModel>>()

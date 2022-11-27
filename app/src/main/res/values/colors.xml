@@ -3,9 +3,11 @@
 
   <color name="colorPrimary">@color/grey_01</color>
   <color name="colorSecondary">@color/yellow_05</color>
+  <color name="colorBackground">@color/grey_10</color>
 
   <color name="colorTextPrimary">@color/grey_00</color>
   <color name="colorTextSecondary">@color/grey_05</color>
+  <color name="colorTextAccent">@color/grey_09</color>
 
   <color name="yellow_00">#FFFFEC</color>
   <color name="yellow_02">#FCFACC</color>
