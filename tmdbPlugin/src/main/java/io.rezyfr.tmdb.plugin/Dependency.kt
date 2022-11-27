@@ -30,21 +30,6 @@ object AndroidX {
     )
 }
 
-object AndroidXLifecycle {
-    const val androidXLifecycleExtensions =
-        "androidx.lifecycle:lifecycle-extensions:${Versions.androidXLifecycleExt}"
-    const val androidXLifecycleCompiler =
-        "androidx.lifecycle:lifecycle-compiler:${Versions.androidXLifecycleExt}"
-
-    val implementation = arrayOf(
-        androidXLifecycleExtensions
-    )
-
-    val kapt = arrayOf(
-        androidXLifecycleCompiler
-    )
-}
-
 object AndroidXLifecycleScope {
     const val viewmodel =
         "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.androidXLifecycleScope}"
@@ -66,24 +51,19 @@ object Networking {
     const val okhttp3 = "com.squareup.okhttp3:okhttp:${Versions.okhttp3}"
     const val okhttp3LoggingInterceptor =
         "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp3}"
-    const val retrofit2ConverterScalars =
-        "com.squareup.retrofit2:converter-scalars:${Versions.retrofit2}"
     const val retrofit2 = "com.squareup.retrofit2:retrofit:${Versions.retrofit2}"
     const val retrofit2GsonConverter =
         "com.squareup.retrofit2:converter-gson:${Versions.retrofit2}"
-    const val retrofit2Mock = "com.squareup.retrofit2:retrofit-mock:${Versions.retrofit2}"
     const val chuckLibrary =
         "com.github.chuckerteam.chucker:library:${ThirdPartyLibVersions.chucker}"
     const val chuckLibraryNoOp =
         "com.github.chuckerteam.chucker:library-no-op:${ThirdPartyLibVersions.chucker}"
-    const val gson = "com.google.code.gson:gson:${Versions.gson}"
 
     val implementation = arrayOf(
         okhttp3,
         okhttp3LoggingInterceptor,
         retrofit2,
         retrofit2GsonConverter,
-        retrofit2ConverterScalars
     )
 
     val debugImplementation = arrayOf(
@@ -100,8 +80,6 @@ object Coroutines {
         "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
     const val coroutineandroid =
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
-    const val coroutinePlayService =
-        "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:${Versions.coroutines}"
 
     val implementation = arrayOf(
         coroutinecore,
@@ -142,11 +120,6 @@ object TestDependencies {
     const val androidXCoreTesting =
         "androidx.arch.core:core-testing:${Versions.androidXCoreTesting}"
     const val androidXTestCore = "androidx.test:core:${Versions.androidXTestCore}"
-    const val androidXTestRules = "androidx.test:rules:${Versions.androidXTestRules}"
-    const val androidXTestJunit = "androidx.test.ext:junit:${Versions.androidXTestJUnit}"
-    const val androidXTestEspresso =
-        "androidx.test.espresso:espresso-core:${Versions.androidXTestEspresso}"
-    const val androidXTestRunner = "androidx.test:runner:${Versions.androidXTestRunner}"
     const val androidXTestTruth = "androidx.test.ext:truth:${Versions.androidXTestTruth}"
 
     val testImplementation = arrayOf(
@@ -162,21 +135,10 @@ object TestDependencies {
         androidXTestTruth,
     )
 
-    val androidTestImplementation = arrayOf(
-        jUnit,
-        androidXTestCore,
-        androidXTestRules,
-        androidXTestJunit,
-        androidXTestEspresso,
-        androidXTestRunner,
-        coroutinesTest,
-        androidXTestTruth
-    )
 }
 
 object Jetbrains {
     const val kotlinstdlibjdk7 = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlinJdk}"
-    const val kotlinStdlib = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlinJdk}"
 }
 
 object ThirdPartyLibraryDependencies {

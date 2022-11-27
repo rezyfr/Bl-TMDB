@@ -21,11 +21,11 @@ android {
     }
 
     buildTypes {
-        getByName("debug") {
+        debug {
             buildConfigField("String", "APP_TYPE", String.format("\"%s\"", "debug"))
             isTestCoverageEnabled = true
         }
-        getByName("release") {
+        release {
             isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -70,13 +70,9 @@ dependencies {
     implementation(TmdbPlugin.imageLoader.glide)
     kapt(TmdbPlugin.imageLoader.glideCompiler)
 
-    debugImplementation(TmdbPlugin.networking.chuckLibrary)
-    releaseImplementation(TmdbPlugin.networking.chuckLibraryNoOp)
-
     implementation(TmdbPlugin.thirdPartyLibraryDependencies.timber)
 
     TmdbPlugin.testDependencies.testImplementation.forEach { testImplementation(it) }
-    TmdbPlugin.testDependencies.androidTestImplementation.forEach { androidTestImplementation(it) }
 }
 
 task("printVersionName") {

@@ -2,8 +2,6 @@ package io.rezyfr.tmdb.plugin
 
 import AndroidConfigVersion
 import AndroidX
-import AndroidXLifecycle
-import AndroidXLifecycleLivedata
 import AndroidXLifecycleScope
 import Coroutines
 import DaggerHilt
@@ -27,8 +25,6 @@ class TmdbPlugin : Plugin<Project>{
         val versions = Versions
         val configVersion = AndroidConfigVersion
         val androidX = AndroidX
-        val androidXLifecycle = AndroidXLifecycle
-        val androidXLifecycleLivedata = AndroidXLifecycleLivedata
         val androidXLifecycleScope = AndroidXLifecycleScope
         val networking = Networking
         val coroutines = Coroutines

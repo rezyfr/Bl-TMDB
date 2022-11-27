@@ -21,11 +21,11 @@ android {
     }
 
     buildTypes {
-        getByName("debug") {
+        debug {
             buildConfigField("String", "APP_TYPE", String.format("\"%s\"", "debug"))
-            isTestCoverageEnabled = true
+            enableUnitTestCoverage = true
         }
-        getByName("release") {
+        release {
             isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -60,25 +60,16 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(TmdbPlugin.jetbrains.kotlinstdlibjdk7)
-    TmdbPlugin.androidX.implementation.forEach { implementation(it) }
     implementation(TmdbPlugin.androidX.paging)
     api(project(TmdbPlugin.module.domain))
 
     TmdbPlugin.coroutines.implementation.forEach { implementation(it) }
     implementation(TmdbPlugin.hilt.hiltAndroid)
     kapt(TmdbPlugin.hilt.hiltCompiler)
+    TmdbPlugin.networking.debugImplementation.forEach { debugImplementation(it) }
+    TmdbPlugin.networking.releaseImplementation.forEach { releaseImplementation(it) }
     TmdbPlugin.networking.implementation.forEach { implementation(it) }
-
-    implementation(TmdbPlugin.imageLoader.glide)
-    kapt(TmdbPlugin.imageLoader.glideCompiler)
-
-    debugImplementation(TmdbPlugin.networking.chuckLibrary)
-    releaseImplementation(TmdbPlugin.networking.chuckLibraryNoOp)
-
-    implementation(TmdbPlugin.thirdPartyLibraryDependencies.timber)
-
     TmdbPlugin.testDependencies.testImplementation.forEach { testImplementation(it) }
-    TmdbPlugin.testDependencies.androidTestImplementation.forEach { androidTestImplementation(it) }
 }
 
 task("printVersionName") {

@@ -40,6 +40,7 @@ android {
             versionNameSuffix = "-DEBUG"
             isTestCoverageEnabled = true
             isDebuggable = true
+            manifestPlaceholders["appLabel"] = "TheMovieDB Debug"
         }
         release {
             isMinifyEnabled = true
@@ -104,9 +105,7 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(TmdbPlugin.jetbrains.kotlinstdlibjdk7)
     TmdbPlugin.androidX.implementation.forEach { implementation(it) }
-    implementation(TmdbPlugin.androidXLifecycle.androidXLifecycleExtensions)
     TmdbPlugin.androidXLifecycleScope.implementation.forEach { implementation(it) }
-    implementation(TmdbPlugin.androidXLifecycleLivedata.livedata)
     TmdbPlugin.module.implementation.forEach { implementation(project(it)) }
 
     TmdbPlugin.coroutines.implementation.forEach { implementation(it) }
@@ -118,14 +117,10 @@ dependencies {
     implementation(TmdbPlugin.imageLoader.glide)
     kapt(TmdbPlugin.imageLoader.glideCompiler)
 
-    debugImplementation(TmdbPlugin.networking.chuckLibrary)
-    releaseImplementation(TmdbPlugin.networking.chuckLibraryNoOp)
-
     implementation(TmdbPlugin.thirdPartyLibraryDependencies.timber)
     implementation(TmdbPlugin.thirdPartyLibraryDependencies.shimmer)
 
     TmdbPlugin.testDependencies.testImplementation.forEach { testImplementation(it) }
-    TmdbPlugin.testDependencies.androidTestImplementation.forEach { androidTestImplementation(it) }
 }
 
 task("printVersionName") {
