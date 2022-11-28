@@ -1,4 +1,6 @@
 includeBuild("tmdbPlugin")
 include(
-    ":app"
+    ":app",
+    ":core:data",
+    ":core:domain"
 )

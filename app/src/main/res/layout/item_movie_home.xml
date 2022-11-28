@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:paddingBottom="@dimen/spacing_16">
+
+  <ImageView
+    android:id="@+id/iv_backdrop"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:scaleType="centerCrop"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:background="@color/grey_05" />
+
+  <TextView
+    android:id="@+id/tv_date"
+    style="@style/AppTheme.TextAppearance.Caption.12"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/spacing_08"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/iv_backdrop"
+    tools:text="2022-10-10" />
+
+  <TextView
+    android:id="@+id/tv_title"
+    style="@style/AppTheme.TextAppearance.Header.20"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/spacing_08"
+    android:paddingVertical="@dimen/spacing_04"
+    android:maxLines="2"
+    android:background="@color/grey_01_75"
+    android:textColor="@color/grey_10"
+    app:layout_constraintBottom_toBottomOf="@id/iv_backdrop"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    tools:text="Doctor Strange\nDoctor Strange" />
+
+  <TextView
+    android:id="@+id/tv_overview"
+    style="@style/AppTheme.TextAppearance.Caption.12"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="@dimen/spacing_08"
+    android:ellipsize="end"
+    android:maxLines="2"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="@id/tv_date"
+    app:layout_constraintTop_toBottomOf="@id/rating_bar"
+    tools:text="A team of allied saboteurs are assigned an impossible mission: infiltrate an impregnable Nazi-held island and destroy the two enormous long-range field guns that prevent the rescue of 2,000 trapped British soldiers." />
+
+  <RatingBar
+    android:id="@+id/rating_bar"
+    style="?android:attr/ratingBarStyleSmall"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/spacing_08"
+    app:layout_constraintBottom_toBottomOf="@id/tv_date"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="@id/tv_date" />
+</androidx.constraintlayout.widget.ConstraintLayout>
