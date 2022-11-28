@@ -1,9 +1,17 @@
+
+object AppVersion {
+    const val major = 1
+    const val minor = 0
+    const val patch = 0
+    const val subPatch =  0
+}
+
 object AndroidConfigVersion {
-    const val compileSdk = 32
+    const val compileSdk = 33
     const val buildTools = "31.0.0"
     const val minSdk = 23
-    const val targetSdk = 32
-    const val versionCode = 55
-    const val versionName = "1.17.0"
+    const val targetSdk = 33
+    const val versionCode = AppVersion.major * 1_000_000 + AppVersion.minor * 1000 + AppVersion.patch * 10 + AppVersion.subPatch
+    const val versionName = "${AppVersion.major}.${AppVersion.minor}.${AppVersion.patch}"
     const val applicationId = "io.rezyfr.tmdb"
 }
