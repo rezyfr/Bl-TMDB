@@ -38,7 +38,6 @@ android {
                 "proguard-rules.pro"
             )
             versionNameSuffix = "-DEBUG"
-            isTestCoverageEnabled = true
             isDebuggable = true
             manifestPlaceholders["appLabel"] = "TheMovieDB Debug"
         }
@@ -96,7 +95,7 @@ android {
 
     testOptions {
         // Used for Unit testing Android dependent elements in /test folder
-        unitTests.isIncludeAndroidResources = true
+        
         unitTests.isReturnDefaultValues = true
     }
 }

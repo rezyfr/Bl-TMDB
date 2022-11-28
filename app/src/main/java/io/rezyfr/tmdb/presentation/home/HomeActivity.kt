@@ -12,7 +12,7 @@ import io.rezyfr.tmdb.presentation.detail.DetailActivity
 import io.rezyfr.tmdb.presentation.home.adapter.MovieDiscoverAdapter
 import io.rezyfr.tmdb.presentation.home.adapter.MovieLoadStateAdapter
 import io.rezyfr.tmdb.utils.*
-import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import timber.log.Timber
 
 @AndroidEntryPoint
@@ -32,8 +32,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(),
             )
         }
 
-        lifecycleScope.launchWhenCreated {
-            viewModel.movies.collectLatest {
+        viewModel.movies.observe(this@HomeActivity) {
+            lifecycleScope.launch {
                 adapter.submitData(it)
                 Timber.d(it.toString())
             }
@@ -74,6 +74,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(),
                 }
             }
         }
+        viewModel.init()
     }
 
     override fun onMovieClicked(id: Int) {

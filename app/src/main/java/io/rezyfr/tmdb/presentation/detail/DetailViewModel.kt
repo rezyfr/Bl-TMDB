@@ -16,7 +16,7 @@ import javax.inject.Inject
 class DetailViewModel @Inject constructor(
     private val getMovieDetailUseCase: GetMovieDetailUseCase
 ) : ViewModel() {
-    private val _detail = MutableLiveData<FetchData<MovieDetailDomainModel>>()
+    private val _detail = MutableLiveData<FetchData<MovieDetailDomainModel>>(FetchData.Uninitialized)
     val detail: LiveData<FetchData<MovieDetailDomainModel>> get() = _detail
 
     fun init(id: Int) {
