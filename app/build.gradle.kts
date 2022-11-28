@@ -18,6 +18,14 @@ fun buildProperty(key: String, format: Boolean = false): String {
 }
 
 android {
+    signingConfigs {
+        create("release") {
+            keyAlias = "tmdbrezyfr"
+            keyPassword = "tmdbrezyfr"
+            storeFile = file("C:\\Users\\Use\\StudioProjects\\tmdbrezyfr.jks")
+            storePassword = "tmdbrezyfr"
+        }
+    }
     compileSdk = TmdbPlugin.configVersion.compileSdk
     buildToolsVersion = TmdbPlugin.configVersion.buildTools
     defaultConfig {
@@ -30,6 +38,14 @@ android {
         multiDexEnabled = true
     }
 
+    signingConfigs {
+        create("production") {
+            keyAlias = "tmdbrezyfr"
+            keyPassword = "tmdbrezyfr"
+            storeFile = file("tmdbrezyfr.jks")
+            storePassword = "tmdbrezyfr"
+        }
+    }
     buildTypes {
         debug {
             buildConfigField("String", "APP_TYPE", String.format("\"%s\"", "debug"))
@@ -49,6 +65,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("production")
         }
     }
     flavorDimensions("api")
@@ -95,7 +112,7 @@ android {
 
     testOptions {
         // Used for Unit testing Android dependent elements in /test folder
-        
+
         unitTests.isReturnDefaultValues = true
     }
 }
